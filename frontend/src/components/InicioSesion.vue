@@ -10,7 +10,7 @@ const mail = ref('')
 const nombre = ref('')
 const contraseña = ref('')
 
-// Modal de registro
+
 const mostrarModalRegistro = ref(false)
 const formularioRegistro = ref({
   nombre: '',
@@ -62,7 +62,7 @@ function cerrarModalRegistro() {
 }
 
 async function registrarUsuario() {
-  // Validaciones
+  
   if (!formularioRegistro.value.nombre || formularioRegistro.value.nombre.trim() === '') {
     mensajeRegistro.value = { tipo: 'error', texto: 'El nombre es requerido' }
     return
@@ -103,7 +103,7 @@ async function registrarUsuario() {
         texto: 'Cuenta creada exitosamente. Intenta iniciar sesión.' 
       }
       
-      // Limpiar formulario de login
+      // acá limpio el formulario de login
       nombre.value = formularioRegistro.value.nombre
       contraseña.value = formularioRegistro.value.contraseña
       
@@ -157,7 +157,7 @@ async function registrarUsuario() {
       Crear cuenta
     </button>
 
-    <!-- Modal de Registro -->
+    <!-- Este es el modal de registro -->
     <div v-if="mostrarModalRegistro" class="modal-overlay" @click.self="cerrarModalRegistro">
       <div class="modal">
         <div class="modal-header">
@@ -171,7 +171,7 @@ async function registrarUsuario() {
             {{ mensajeRegistro.texto }}
           </div>
 
-          <!-- Formulario -->
+          <!-- Acá armo el formulario -->
           <div class="formulario-grupo">
             <label>Nombre de usuario:</label>
             <input
