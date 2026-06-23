@@ -22,26 +22,26 @@ namespace BackEndWallet.Controllers
         {
             return "API escuchando...";
         }
-        public JsonResult obtenerBilleteras()
-        {
-            List<billetera_dto> lista = new List<billetera_dto>();
-            foreach (var item in _contexto.billeteras.Include(e => e.Usuario).ToList())
-            {
-                lista.Add(new billetera_dto
-                {
-                    Id = item.Id,
-                    UsuarioId = item.UsuarioId,
-                    Saldo = item.Saldo,
-                    BitCoin = item.BitCoin,
-                    Ethereum = item.Ethereum,
-                    USDC = item.USDC,
-                    Litecoin = item.Litecoin,
-                    Dogecoin = item.Dogecoin
-                });
+        //public JsonResult obtenerBilleteras()
+//{
+//    List<billetera_dto> lista = new List<billetera_dto>();
+//    foreach (var item in _contexto.billeteras.Include(e => e.Usuario).ToList())
+//    {
+//        lista.Add(new billetera_dto
+//        {
+//            Id = item.Id,
+//            UsuarioId = item.UsuarioId,
+//            Saldo = item.Saldo,
+//            BitCoin = item.BitCoin,
+//            Ethereum = item.Ethereum,
+//            USDC = item.USDC,
+//            Litecoin = item.Litecoin,
+//            Dogecoin = item.Dogecoin
+//        });
 
-            }
-            return Json(lista);
-        }
+//    }
+//    return Json(lista);
+//}
 
         [HttpGet]
         [Route("api/billeteras/obtener/{idUsuario}")]
@@ -101,41 +101,41 @@ namespace BackEndWallet.Controllers
             return Ok(new { error = "Usuario no existe." });
         }
 
-        [HttpPut]
-        [Route("api/billeteras/editar/{id}")]
-        public IActionResult editarBilletera(int id, [FromBody] Billetera billetera)
-        {
-            var bille = _contexto.billeteras.FirstOrDefault(x => x.Id == id);
+        //[HttpPut]
+//[Route("api/billeteras/editar/{id}")]
+//public IActionResult editarBilletera(int id, [FromBody] Billetera billetera)
+//{
+//    var bille = _contexto.billeteras.FirstOrDefault(x => x.Id == id);
 
-            if (bille == null)
-                return NotFound();
+//    if (bille == null)
+//        return NotFound();
 
-            bille.UsuarioId = billetera.UsuarioId;
-            bille.Saldo = billetera.Saldo;
-            bille.BitCoin = billetera.BitCoin;
-            bille.Ethereum = billetera.Ethereum;
-            bille.USDC = billetera.USDC;
-            bille.Litecoin = billetera.Litecoin;
-            bille.Dogecoin = billetera.Dogecoin;
-            _contexto.SaveChanges();
+//    bille.UsuarioId = billetera.UsuarioId;
+//    bille.Saldo = billetera.Saldo;
+//    bille.BitCoin = billetera.BitCoin;
+//    bille.Ethereum = billetera.Ethereum;
+//    bille.USDC = billetera.USDC;
+//    bille.Litecoin = billetera.Litecoin;
+//    bille.Dogecoin = billetera.Dogecoin;
+//    _contexto.SaveChanges();
 
-            return Ok(bille);
-        }
+//    return Ok(bille);
+//}
 
-        [HttpDelete]
-        [Route("api/billeteras/borrar/{id}")]
-        public IActionResult borrarBilletera(int id)
-        {
-            var bille = _contexto.billeteras.FirstOrDefault(x => x.Id == id);
+//[HttpDelete]
+//[Route("api/billeteras/borrar/{id}")]
+//public IActionResult borrarBilletera(int id)
+//{
+//    var bille = _contexto.billeteras.FirstOrDefault(x => x.Id == id);
 
-            if (bille == null)
-                return Ok(new { error = "Billetera no pudo borrarse." });
+//    if (bille == null)
+//        return Ok(new { error = "Billetera no pudo borrarse." });
 
-            _contexto.billeteras.Remove(bille);
-            _contexto.SaveChanges();
+//    _contexto.billeteras.Remove(bille);
+//    _contexto.SaveChanges();
 
-            return Ok(new { estado = "ok" });
-        }
+//    return Ok(new { estado = "ok" });
+//}
 
 
     }
