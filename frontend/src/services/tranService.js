@@ -63,7 +63,7 @@ try {
 export async function eliminarTransaccion(id) {
     try {
         const respuesta = await fetch(
-            `https://localhost:7251/api/Transactions/eliminarTransaccion/${id}`,
+            `https://localhost:7251/api/Transactions/borrarTransaccion/${id}`,
             {
                 method: 'DELETE',
                 headers: {
