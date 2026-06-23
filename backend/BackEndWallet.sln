@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37111.16 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackEndWallet", "BackEndWallet\BackEndWallet.csproj", "{B3E1D506-F62E-42EA-A728-72683C0778D2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B3E1D506-F62E-42EA-A728-72683C0778D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3E1D506-F62E-42EA-A728-72683C0778D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3E1D506-F62E-42EA-A728-72683C0778D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3E1D506-F62E-42EA-A728-72683C0778D2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DBB4CF54-A16C-4E67-9138-3C106FB1C51A}
+	EndGlobalSection
+EndGlobal
