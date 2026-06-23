@@ -25,40 +25,40 @@ namespace BackEndWallet.Controllers
             return Ok("API escuchando...");
         }
         //public JsonResult obtenerUsuarios()
-        //{
-        //    List<usuario_dto> lista = new List<usuario_dto>();
-        //    foreach (var item in _contexto.usuarios.ToList())
-        //    {
-        //        lista.Add(new usuario_dto() {
-        //            Nombre = item.Nombre,
-        //            Mail = item.Mail,
-        //            Tipo = item.Tipo
-        //        });
-        //    }
-        //    return Json(lista);
-        //}
+//{
+//    List<usuario_dto> lista = new List<usuario_dto>();
+//    foreach (var item in _contexto.usuarios.ToList())
+//    {
+//        lista.Add(new usuario_dto() {
+//            Nombre = item.Nombre,
+//            Mail = item.Mail,
+//            Tipo = item.Tipo
+//        });
+//    }
+//    return Json(lista);
+//}
 
-        public JsonResult obtenerUsuario(int id)
-        {
-            var usuario = _contexto.usuarios
-                .Where(e => e.Id == id).FirstOrDefault();
+//public JsonResult obtenerUsuario(int id)
+//{
+//    var usuario = _contexto.usuarios
+//        .Where(e => e.Id == id).FirstOrDefault();
 
-            var usuarioDTO = new usuario_dto();
-            if (usuario != null)
-            {
+//    var usuarioDTO = new usuario_dto();
+//    if (usuario != null)
+//    {
 
-                return Json(usuario);
-                //usuarioDTO = new usuario_dto
-                //{
-                //    Id = usuario.Id,
-                //    Nombre = usuario.Nombre,
-                //    Mail = usuario.Mail,
-                //    Contraseña = usuario.Contraseña,
-                //    Tipo = usuario.Tipo
-                //};
-            }
-            return Json(usuarioDTO);
-        }
+//        return Json(usuario);
+//        //usuarioDTO = new usuario_dto
+//        //{
+//        //    Id = usuario.Id,
+//        //    Nombre = usuario.Nombre,
+//        //    Mail = usuario.Mail,
+//        //    ContraseÃ±a = usuario.ContraseÃ±a,
+//        //    Tipo = usuario.Tipo
+//        //};
+//    }
+//    return Json(usuarioDTO);
+//}
 
         [HttpPost]
         [Route("validarUsuario")]
@@ -67,7 +67,7 @@ namespace BackEndWallet.Controllers
             var usuario = _contexto.usuarios
                 .FirstOrDefault(e =>
                     e.Nombre == datos.Nombre &&
-                    e.Contraseña == datos.Contraseña);
+                    e.ContraseÃ±a == datos.ContraseÃ±a);
 
             if (usuario != null)
             {
@@ -76,7 +76,7 @@ namespace BackEndWallet.Controllers
 
             return Json(new
             {
-                estado = "error", mensaje = "Usuario o contraseña incorrectos."
+                estado = "error", mensaje = "Usuario o contraseÃ±a incorrectos."
             });
         }
 
@@ -86,7 +86,7 @@ namespace BackEndWallet.Controllers
         {
             if (!string.IsNullOrWhiteSpace(usuario.Nombre)
                 && !string.IsNullOrWhiteSpace(usuario.Mail)
-                && !string.IsNullOrWhiteSpace(usuario.Contraseña))
+                && !string.IsNullOrWhiteSpace(usuario.ContraseÃ±a))
             {
                 if (_contexto.usuarios
                     .Where(e => e.Mail == usuario.Mail)
@@ -111,7 +111,7 @@ namespace BackEndWallet.Controllers
                 return NotFound();
 
             usu.Nombre = usuario.Nombre;            
-            usu.Contraseña = usuario.Contraseña;
+            usu.ContraseÃ±a = usuario.ContraseÃ±a;
             _contexto.SaveChanges();
 
             return Ok(usu);
