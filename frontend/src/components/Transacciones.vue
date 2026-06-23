@@ -84,7 +84,7 @@ async function guardarEdicion() {
  try {
     cargandoEdicion.value = true
     
-    // Crear el objeto correctamente
+ 
     const transaccionActualizada = {
       id: formularioEdicion.value.id,
       usuarioId: formularioEdicion.value.usuarioId,
@@ -110,7 +110,7 @@ async function guardarEdicion() {
     }
 
     if (response.success) {
-      // Actualizar la lista
+      
       const listActualizada = await listar()
       lista.value = listActualizada
       
@@ -189,7 +189,7 @@ function borrarTransaccion(id) {
                 </td>
               </tr>
 
-              <!-- Fila expandida con detalles -->
+              
               <tr v-if="filaExpandida === transaccion.id" class="fila-expandida">
                 <td colspan="5">
                   <div class="detalles-contenedor">
