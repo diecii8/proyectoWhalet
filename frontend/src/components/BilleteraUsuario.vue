@@ -67,7 +67,7 @@ watch(() => formularioVenta.value.moneda, async (nuevaMoneda) => {
 })
 
 function calcularValorEnPesos(cantidad, moneda) {
-  // Mapeo de nombres de monedas a claves de tasas
+  
   const monedaMap = {
     'bitcoin': 'BITCOIN',
     'ethereum': 'ETHEREUM',
@@ -157,7 +157,7 @@ async function realizarCompra() {
     precioUnitario: formularioCompra.value.precioUnitario
   })
 
-  // Cantidad es la cantidad de criptomonedas (ej: 0.5 BTC)
+  
   const cantidadCriptos = parseFloat(formularioCompra.value.cantidad)
   
   if (isNaN(cantidadCriptos) || cantidadCriptos <= 0) {
@@ -166,7 +166,7 @@ async function realizarCompra() {
     return
   }
 
-  // Monto es el valor en pesos a pagar (cantidad * precio unitario)
+ 
   const valorEnPesos = parseFloat(formularioCompra.value.monto)
   console.log('Valor en pesos parseado:', valorEnPesos)
   
@@ -235,7 +235,7 @@ async function realizarVenta() {
     precioUnitario: formularioVenta.value.precioUnitario
   })
 
-  // Cantidad es la cantidad de criptomonedas a vender (ej: 0.5 BTC)
+  
   const cantidadCriptos = parseFloat(formularioVenta.value.cantidad)
   
   if (isNaN(cantidadCriptos) || cantidadCriptos <= 0) {
@@ -244,7 +244,7 @@ async function realizarVenta() {
     return
   }
 
-  // Monto es el valor en pesos que recibirás (cantidad * precio unitario)
+  
   const valorEnPesos = parseFloat(formularioVenta.value.monto)
   console.log('Valor en pesos parseado:', valorEnPesos)
   
@@ -254,7 +254,7 @@ async function realizarVenta() {
     return
   }
 
-  // Mapeo de monedas para obtener el saldo correcto de billetera
+  
   const monedaMapBilletera = {
     'Bitcoin': 'bitCoin',
     'Ethereum': 'ethereum',
@@ -487,7 +487,7 @@ onMounted(async () => {
           </button>
         </div>
       </div>
-  </div>/div>
+  </div>
     </div>
     <!-- Modal Venta -->
     <div v-if="mostrarModalVenta" class="modal-overlay" @click.self="cerrarModalVenta">
